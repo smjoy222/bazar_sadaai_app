@@ -18,10 +18,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
+          //showing the header
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 45, bottom: 15),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: EdgeInsets.only(top: 25, bottom: 10),
+              padding: EdgeInsets.only(left: 10, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -71,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          //showing the body
           HomeBody(),
         ],
       ),

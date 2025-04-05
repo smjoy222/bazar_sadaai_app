@@ -10,4 +10,5 @@ class AppColors {
   static final Color signColor = const Color(0xFFa9a29f);
   static final Color titileColor = const Color(0xFF332d2b);
   static final Color yellowColor = const Color(0xFFffd379);
+  static final Color boxshadow = const Color(0xFFe8e8e8);
 }
