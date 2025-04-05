@@ -1,4 +1,6 @@
+import 'package:bazar_sadaai_app/utils/colors.dart';
 import 'package:bazar_sadaai_app/widgets/big_text.dart';
+import 'package:bazar_sadaai_app/widgets/icon_text.dart';
 import 'package:bazar_sadaai_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +32,7 @@ class _HomeBodyState extends State<HomeBody> {
       children: [
         Container(
           height: 220,
-          margin: EdgeInsets.only(left: 5, right: 5), // for image gap
+          margin: EdgeInsets.only(left: 10, right: 10), // for image gap
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color:
@@ -44,12 +46,8 @@ class _HomeBodyState extends State<HomeBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 150,
-            margin: EdgeInsets.only(
-              left: 30,
-              right: 30,
-              bottom: 15,
-            ), // for image gap
+            height: 120,
+            margin: EdgeInsets.only(left: 30,right: 30,bottom: 30,), // for image gap
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.white,
@@ -83,7 +81,16 @@ class _HomeBodyState extends State<HomeBody> {
                 ],
 
               ),
-            ],),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                  IconText(icon: Icons.circle_sharp, text: "Good", iconColor: AppColors.iconColor1,),
+                  IconText(icon: Icons.location_on, text: "KM ", iconColor: AppColors.maincolor,),
+                  IconText(icon: Icons.access_time_rounded, text: "min ", iconColor: AppColors.iconColor2,)
+                ],
+              ),
+            ],
+           ),
           ),
           ),
         ),
