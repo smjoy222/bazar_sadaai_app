@@ -57,30 +57,38 @@ class _HomeBodyState extends State<HomeBody> {
               //   image: AssetImage("bazar_sadaai_app/assets/images/straw.png"),
               // ),
             ),
-          child: Container(
-            padding: EdgeInsets.only(left: 15, right: 15, top: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-              BigText(text: "Fresh Strawberries", color: Colors.black, size: 20,),
-              SizedBox(height: 10,),
-              Row(
+            child: Container(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Wrap(
-                    children: List.generate(5, (index) {
-                      return Icon(Icons.star, color: Colors.yellow, size: 15,);}),
+                  BigText(
+                    text: "Fresh Strawberries",
+                    style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
-                  SizedBox(width: 10,),
-                  SmallText(text: "4.5",),
-                  SizedBox(width: 10,),
-                  SmallText(text: "1287",),
-                  SizedBox(width: 10,),
-                  SmallText(text: "Comments",),
-                  
-                   
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Wrap(
+                        children: List.generate(5, (index) {
+                          return Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                            size: 15,
+                          );
+                        }),
+                      ),
+                      SizedBox(width: 10),
+                      SmallText(text: "4.5"),
+                      SizedBox(width: 10),
+                      SmallText(text: "1287"),
+                      SizedBox(width: 10),
+                      SmallText(text: "Comments"),
+                    ],
+                  ),
                 ],
-
               ),
+<<<<<<< HEAD
               SizedBox(height: 20,),
               Row(
                 children: [
@@ -92,6 +100,9 @@ class _HomeBodyState extends State<HomeBody> {
             ],
            ),
           ),
+=======
+            ),
+>>>>>>> 5b700f51c46216e2b87698ef77399f290327b482
           ),
         ),
       ],
