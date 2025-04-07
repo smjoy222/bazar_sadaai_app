@@ -18,6 +18,8 @@ class _HomeBodyState extends State<HomeBody> {
   double _scaleFactor = 0.8;
   double _height = 210;
 
+  bool fruit = false, vegetable = false, dairy = false, meat = false;
+
   @override
   void initState() {
     super.initState();
@@ -59,7 +61,123 @@ class _HomeBodyState extends State<HomeBody> {
             ),
           ),
         ),
+        showItem(), //category item
       ],
+    );
+  }
+
+  Widget showItem() {
+    return Container(
+      margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () {
+              fruit = true;
+              vegetable = false;
+              dairy = false;
+              meat = false;
+              setState(() {});
+            },
+            child: Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: fruit ? AppColors.maincolor : Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/cate-1.png",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              fruit = false;
+              vegetable = true;
+              dairy = false;
+              meat = false;
+              setState(() {});
+            },
+            child: Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: vegetable ? AppColors.maincolor : Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/cate-2.png",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              fruit = false;
+              vegetable = false;
+              dairy = false;
+              meat = true;
+              setState(() {});
+            },
+            child: Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: meat ? AppColors.maincolor : Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/cate-3.png",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              fruit = false;
+              vegetable = false;
+              dairy = true;
+              meat = false;
+              setState(() {});
+            },
+            child: Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: dairy ? AppColors.maincolor : Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/cate-4.png",
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
