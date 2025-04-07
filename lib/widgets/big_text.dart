@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,7 +11,7 @@ class BigText extends StatelessWidget {
     super.key,
     this.color = const Color(0xFF332d2b),
     required this.text,
-    this.size = 20,
+    this.size = 0,
     this.overFlow = TextOverflow.ellipsis,
     required TextStyle style,
   });
@@ -21,9 +22,9 @@ class BigText extends StatelessWidget {
       maxLines: 1,
       overflow: overFlow,
       style: TextStyle(
-        fontFamily: GoogleFonts.roboto().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         color: color,
-        fontSize: size,
+        fontSize: size==0?Dimensions.font20:size,
         fontWeight: FontWeight.w400,
       ),
     );

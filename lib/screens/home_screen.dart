@@ -39,7 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           "SHADAI ",
                           style: TextStyle(
-                            fontFamily: GoogleFonts.fascinateInline().fontFamily,
+                            fontFamily:
+                                GoogleFonts.fascinateInline().fontFamily,
                             color: AppColors.maincolor,
                             fontSize: 23,
                           ),
@@ -61,14 +62,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors.maincolor,
                     ),
-                    child: Icon(Icons.search, color: Colors.white),
+                    child: Icon(Icons.search, color: Colors.white, size: 25),
                   ),
                 ),
               ],
             ),
           ),
           // Home body content
-          Expanded(child: HomeBody()),
+          Expanded(
+            child: SingleChildScrollView(
+              child:
+                  // Home body content
+                  const HomeBody(),
+            ),
+          ),
         ],
       ),
       // Bottom navigation bar
