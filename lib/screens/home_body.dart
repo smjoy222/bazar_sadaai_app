@@ -1,4 +1,5 @@
 import 'package:bazar_sadaai_app/utils/colors.dart';
+import 'package:bazar_sadaai_app/utils/dimensions.dart';
 import 'package:bazar_sadaai_app/widgets/big_text.dart';
 import 'package:bazar_sadaai_app/widgets/icon_text.dart';
 import 'package:bazar_sadaai_app/widgets/small_text.dart';
@@ -16,7 +17,7 @@ class _HomeBodyState extends State<HomeBody> {
   final PageController _pageController = PageController(viewportFraction: 0.85);
   var _currPageValue = 0.0;
   double _scaleFactor = 0.8;
-  double _height = 210;
+  double _height = Dimensions.pageViewContainer;
 
   bool fruit = false, vegetable = false, dairy = false, meat = false;
 
@@ -39,8 +40,9 @@ class _HomeBodyState extends State<HomeBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //Slider section
         Container(
-          height: 310,
+          height: Dimensions.pageView,
           child: PageView.builder(
             controller: _pageController,
             itemCount: 5,
@@ -49,6 +51,7 @@ class _HomeBodyState extends State<HomeBody> {
             },
           ),
         ),
+        //dots
         new DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -61,7 +64,125 @@ class _HomeBodyState extends State<HomeBody> {
             ),
           ),
         ),
-        showItem(), //category item
+        //category section
+        showItem(),
+        //Popular text
+        SizedBox(height: Dimensions.height30),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(
+                text: "Popular",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: BigText(
+                  text: ".",
+                  color: Colors.black26,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: EdgeInsets.only(bottom: 5),
+                child: SmallText(text: "Food pairing"),
+              ),
+            ],
+          ),
+        ),
+        //list of food and images
+        ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 10,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                  left: Dimensions.width20,
+                  right: Dimensions.width10,
+                  bottom: Dimensions.height10,
+                ),
+                child: Row(
+                  children: [
+                    //image section
+                    Container(
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          Dimensions.radius20,
+                        ),
+                        color: const Color.fromARGB(97, 232, 144, 20),
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/red-apple.png'),
+                        ),
+                      ),
+                    ),
+                    //text container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.listViewTextContSize,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.radius20),
+                            bottomRight: Radius.circular(Dimensions.radius20),
+                          ),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            right: Dimensions.width10,
+                            left: Dimensions.width10,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BigText(
+                                text: "Fresh Red Apple",
+                                color: Colors.black,
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: Dimensions.height10),
+                              SmallText(text: "Original Chinese Red Apple"),
+                              SizedBox(height: Dimensions.height10),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconText(
+                                    icon: Icons.circle_sharp,
+                                    text: 'Good',
+                                    iconColor: AppColors.iconColor1,
+                                  ),
+                                  IconText(
+                                    icon: Icons.location_on,
+                                    text: '1.7km',
+                                    iconColor: AppColors.maincolor,
+                                  ),
+                                  IconText(
+                                    icon: Icons.access_time_rounded,
+                                    text: '1 Day',
+                                    iconColor: AppColors.iconColor2,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+        ),
       ],
     );
   }
@@ -82,11 +203,11 @@ class _HomeBodyState extends State<HomeBody> {
             },
             child: Material(
               elevation: 5.0,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(Dimensions.radius10),
               child: Container(
                 decoration: BoxDecoration(
                   color: fruit ? AppColors.maincolor : Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
                 padding: const EdgeInsets.all(8),
                 child: Image.asset(
@@ -108,11 +229,11 @@ class _HomeBodyState extends State<HomeBody> {
             },
             child: Material(
               elevation: 5.0,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(Dimensions.radius10),
               child: Container(
                 decoration: BoxDecoration(
                   color: vegetable ? AppColors.maincolor : Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
                 padding: const EdgeInsets.all(8),
                 child: Image.asset(
@@ -134,11 +255,11 @@ class _HomeBodyState extends State<HomeBody> {
             },
             child: Material(
               elevation: 5.0,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(Dimensions.radius10),
               child: Container(
                 decoration: BoxDecoration(
                   color: meat ? AppColors.maincolor : Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
                 padding: const EdgeInsets.all(8),
                 child: Image.asset(
@@ -160,11 +281,11 @@ class _HomeBodyState extends State<HomeBody> {
             },
             child: Material(
               elevation: 5.0,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(Dimensions.radius10),
               child: Container(
                 decoration: BoxDecoration(
                   color: dairy ? AppColors.maincolor : Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(Dimensions.radius10),
                 ),
                 padding: const EdgeInsets.all(8),
                 child: Image.asset(
@@ -212,14 +333,22 @@ class _HomeBodyState extends State<HomeBody> {
       child: Stack(
         children: [
           Container(
-            height: 210,
-            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: Dimensions.pageViewContainer,
+            margin: EdgeInsets.only(
+              left: Dimensions.width10,
+              right: Dimensions.width10,
+            ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
               color:
                   index.isEven
-                      ? Colors.blue
-                      : const Color.fromARGB(255, 42, 234, 32),
+                      ? const Color.fromARGB(255, 236, 144, 7)
+                      : const Color.fromARGB(
+                        255,
+                        213,
+                        192,
+                        2,
+                      ), // Change this to your desired color
               image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/straw.png'),
@@ -229,10 +358,14 @@ class _HomeBodyState extends State<HomeBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              height: Dimensions.pageViewTextContainer,
+              margin: EdgeInsets.only(
+                left: Dimensions.width30,
+                right: Dimensions.width30,
+                bottom: Dimensions.height30,
+              ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -245,7 +378,11 @@ class _HomeBodyState extends State<HomeBody> {
                 ],
               ),
               child: Container(
-                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                padding: EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                  top: Dimensions.height15,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -253,7 +390,7 @@ class _HomeBodyState extends State<HomeBody> {
                       text: 'Fresh Strawberries',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: Dimensions.height10),
                     Row(
                       children: [
                         Wrap(
@@ -273,7 +410,7 @@ class _HomeBodyState extends State<HomeBody> {
                         SmallText(text: 'Comments'),
                       ],
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: Dimensions.height15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -289,7 +426,7 @@ class _HomeBodyState extends State<HomeBody> {
                         ),
                         IconText(
                           icon: Icons.access_time_rounded,
-                          text: '32min',
+                          text: '1 Day',
                           iconColor: AppColors.iconColor2,
                         ),
                       ],

@@ -1,4 +1,6 @@
+import 'package:bazar_sadaai_app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SmallText extends StatelessWidget {
   final Color? color;
@@ -8,7 +10,7 @@ class SmallText extends StatelessWidget {
   // TextOverflow overFlow;
   SmallText({
     super.key,
-    this.color=const Color.fromARGB(255, 42, 234, 32),
+    this.color,
     required this.text,
     this.size = 12,
     this.height = 1.2,
@@ -20,10 +22,10 @@ class SmallText extends StatelessWidget {
       text,
       // overflow: overFlow,
       style: TextStyle(
-      fontFamily: "Roboto",
-        color: color ,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        color: color ?? AppColors.maincolor,
         fontSize: size,
-        height: height
+        height: height,
         // fontWeight: FontWeight.w400,
       ),
     );
