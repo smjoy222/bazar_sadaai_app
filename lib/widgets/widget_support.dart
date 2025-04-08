@@ -22,8 +22,8 @@ class AppWidgetSupport {
 
   static TextStyle lightTextFeildStyle() {
     return TextStyle(
-      color: Colors.black38,
-      fontSize: 14.0,
+      color: const Color.fromARGB(123, 0, 0, 0),
+      fontSize: 15.0,
       fontWeight: FontWeight.w500,
       fontFamily: GoogleFonts.poppins().fontFamily,
     );

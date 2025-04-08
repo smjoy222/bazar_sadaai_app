@@ -1,15 +1,15 @@
-import 'package:bazar_sadaai_app/screens/signup.dart';
+import 'package:bazar_sadaai_app/screens/login_screen.dart';
 import 'package:bazar_sadaai_app/widgets/widget_support.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       padding: EdgeInsets.only(left: 20.0, right: 20.0),
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 1.8,
+                      height: MediaQuery.of(context).size.height / 1.6,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           SizedBox(height: 30.0),
                           Text(
-                            "Login",
+                            "Sing Up",
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
@@ -98,6 +98,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           SizedBox(height: 30.0),
                           TextField(
+                            decoration: InputDecoration(
+                              hintText: "Name",
+                              hintStyle: TextStyle(
+                                color: const Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.bold,
+                              ),
+                              // border: OutlineInputBorder(
+                              //   borderRadius: BorderRadius.circular(20),
+                              //   borderSide: BorderSide(color: Colors.grey),
+                              // ),
+                              prefixIcon: Icon(
+                                Icons.person,
+                                color: const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 30.0),
+                          TextField(
                             obscureText: true,
                             decoration: InputDecoration(
                               hintText: "Password",
@@ -115,14 +133,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 20.0),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "Forgot Password?",
-                              style: AppWidgetSupport.semiTextFeildStyle(),
-                            ),
-                          ),
                           SizedBox(height: 60.0),
                           Material(
                             elevation: 5.0,
@@ -136,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               child: Center(
                                 child: Text(
-                                  "LOGIN",
+                                   "SIGN UP",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -154,10 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 70.0),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                     },
                     child: Text(
-                      "Don't have an account? Sign up",
+                      "Already have an account? Log in",
                       style: AppWidgetSupport.semiTextFeildStyle(),
                     ),
                   ),
