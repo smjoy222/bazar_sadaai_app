@@ -1,7 +1,10 @@
+import 'package:bazar_sadaai_app/screens/forget_pass.dart';
+import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/signup.dart';
 import 'package:bazar_sadaai_app/widgets/widget_support.dart';
 import 'package:flutter/material.dart';
 
+// Removed duplicate LoginScreen class declaration to fix the error.
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -116,11 +119,21 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           SizedBox(height: 20.0),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "Forgot Password?",
-                              style: AppWidgetSupport.semiTextFeildStyle(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ForgetPass(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                "Forgot Password?",
+                                style: AppWidgetSupport.semiTextFeildStyle(),
+                              ),
                             ),
                           ),
                           SizedBox(height: 60.0),
@@ -131,17 +144,27 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: EdgeInsets.symmetric(vertical: 8.0),
                               width: 180,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 92, 244, 54),
+                                color: Color.fromARGB(255, 18, 168, 10),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Center(
-                                child: Text(
-                                  "LOGIN",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontFamily: "Roboto",
-                                    fontWeight: FontWeight.bold,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomeScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    "LOGIN",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: "Roboto",
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -154,7 +177,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 70.0),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Signup()),
+                      );
                     },
                     child: Text(
                       "Don't have an account? Sign up",

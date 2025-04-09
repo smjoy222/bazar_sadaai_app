@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(Icons.notifications, size: 26, color: Colors.white),
           Icon(Icons.account_circle, size: 26, color: Colors.white),
         ],
-        color: Colors.green,
+        color: Color.fromARGB(255, 18, 168, 10),
         buttonBackgroundColor: Colors.green,
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,

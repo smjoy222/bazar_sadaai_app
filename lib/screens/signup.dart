@@ -141,7 +141,7 @@ class _SignupState extends State<Signup> {
                               padding: EdgeInsets.symmetric(vertical: 8.0),
                               width: 180,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 92, 244, 54),
+                                color: Color.fromARGB(255, 18, 168, 10),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Center(

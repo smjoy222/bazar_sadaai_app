@@ -15,7 +15,7 @@ List<Unboardingcontent> contents = [
     title: "Welcome to Bazar Sadaai",
     description:
         "Discover a world of convenience and savings with our app. Shop from the comfort of your home and enjoy exclusive deals.",
-    image: "assets/images/screen1.png",
+    image: "assets/images/biglogo.png",
   ),
   Unboardingcontent(
     title: "Shop Smart",
