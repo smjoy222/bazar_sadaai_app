@@ -1,4 +1,5 @@
 import 'package:bazar_sadaai_app/screens/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,28 +13,28 @@ class ForgetPass extends StatefulWidget {
 class _ForgetPassState extends State<ForgetPass> {
   TextEditingController mailController = new TextEditingController();
 
-  //   String email = "";
+    String email = "";
 
-  // final _formkey = GlobalKey<FormState>();
+  final _formkey = GlobalKey<FormState>();
 
-  // resetPassword() async {
-  //   try {
-  //     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //         content: Text(
-  //       "Password Reset Email has been sent !",
-  //       style: TextStyle(fontSize: 18.0),
-  //     )));
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == "user-not-found") {
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //           content: Text(
-  //         "No user found for that email.",
-  //         style: TextStyle(fontSize: 18.0),
-  //       )));
-  //     }
-  //   }
-  // }
+  resetPassword() async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+        "Password Reset Email has been sent !",
+        style: TextStyle(fontSize: 18.0),
+      )));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "user-not-found") {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          "No user found for that email.",
+          style: TextStyle(fontSize: 18.0),
+        )));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +65,7 @@ class _ForgetPassState extends State<ForgetPass> {
             ),
             Expanded(
               child: Form(
+                key: _formkey,
                 child: Padding(
                   padding: EdgeInsets.only(left: 7,right: 7),
                   child: ListView(
@@ -102,20 +104,30 @@ class _ForgetPassState extends State<ForgetPass> {
                       ),
                       SizedBox(height: 35),
 
-                      Container(
-                        width: 140,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Send Mail",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 18, 168, 10),
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: (){
+                          if (_formkey.currentState!.validate()) {
+                            setState(() {
+                              email = mailController.text;
+                            });
+                            resetPassword();
+                          }
+                        },
+                        child: Container(
+                          width: 140,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Send Mail",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 18, 168, 10),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),

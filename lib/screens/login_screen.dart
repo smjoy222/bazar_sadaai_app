@@ -21,27 +21,35 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController useremailcontroller = new TextEditingController();
   TextEditingController userpasswordcontroller = new TextEditingController();
 
-   userLogin() async {
-    try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-          "No User Found for that Email",
-          style: TextStyle(fontSize: 18.0, color: Colors.black),
-        )));
-      }else if(e.code=='wrong-password'){
-         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-          "Wrong Password Provided by User",
-          style: TextStyle(fontSize: 18.0, color: Colors.black),
-        )));
-      }
+  userLogin() async {
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email, password: password);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeScreen()));
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+        "No User Found for that Email",
+        style: TextStyle(fontSize: 18.0, color: Colors.red),
+      )));
+    } else if (e.code == 'wrong-password') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+        "Wrong Password Provided by User",
+        style: TextStyle(fontSize: 18.0, color: Colors.red),
+      )));
+    } else {
+      // Handle any other errors
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+        e.message ?? "An unexpected error occurred.",
+        style: TextStyle(fontSize: 18.0, color: Colors.red),
+      )));
     }
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +124,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(height: 30.0),
                             TextFormField(
                               controller: useremailcontroller,
-                              validator: (value){
-                                if (value==null || value.isEmpty) {
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
                                   return "Please Enter Your Email";
                                 } else if (!RegExp(
                                         r"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -151,6 +159,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   return "Please Enter Your Password";
                                 } else if (value.length < 6) {
                                   return "Password must be at least 6 characters long";
+                                } else if (value.length > 15) {
+                                  return "Password must be less than 15 characters long";
                                 } else {
                                   return null;
                                 }
@@ -192,8 +202,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             SizedBox(height: 60.0),
                             GestureDetector(
-                              onTap:(){
-                                if(_formkey.currentState!.validate()) {
+                              onTap: () {
+                                if (_formkey.currentState!.validate()) {
                                   setState(() {
                                     email = useremailcontroller.text;
                                     password = userpasswordcontroller.text;
@@ -212,15 +222,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Center(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => HomeScreen(),
-                                          ),
-                                        );
-                                      },
+                                      // child: GestureDetector(
+                                      // onTap: () {
+                                      //   Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) => HomeScreen(),
+                                      //     ),
+                                      //   );
+                                      // },
                                       child: Text(
                                         "LOGIN",
                                         style: TextStyle(
@@ -229,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           fontFamily: "Roboto",
                                           fontWeight: FontWeight.bold,
                                         ),
-                                      ),
+                                      
                                     ),
                                   ),
                                 ),
