@@ -2,10 +2,13 @@ import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/login_screen.dart';
 import 'package:bazar_sadaai_app/screens/onboard.dart';
 import 'package:bazar_sadaai_app/screens/signup.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -19,6 +22,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
 
 
 

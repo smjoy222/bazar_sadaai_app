@@ -2,6 +2,7 @@ import 'package:bazar_sadaai_app/screens/forget_pass.dart';
 import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/signup.dart';
 import 'package:bazar_sadaai_app/widgets/widget_support.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // Removed duplicate LoginScreen class declaration to fix the error.
@@ -13,6 +14,35 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String email = "", password = "";
+
+  final _formkey = GlobalKey<FormState>();
+
+  TextEditingController useremailcontroller = new TextEditingController();
+  TextEditingController userpasswordcontroller = new TextEditingController();
+
+   userLogin() async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          "No User Found for that Email",
+          style: TextStyle(fontSize: 18.0, color: Colors.black),
+        )));
+      }else if(e.code=='wrong-password'){
+         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          "Wrong Password Provided by User",
+          style: TextStyle(fontSize: 18.0, color: Colors.black),
+        )));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,106 +101,142 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 30.0),
-                          Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 30.0),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Email",
-                              hintStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0),
+                      child: Form(
+                        key: _formkey,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 30.0),
+                            Text(
+                              "Login",
+                              style: TextStyle(
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
-                              // border: OutlineInputBorder(
-                              //   borderRadius: BorderRadius.circular(20),
-                              //   borderSide: BorderSide(color: Colors.grey),
-                              // ),
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                              ),
                             ),
-                          ),
-                          SizedBox(height: 30.0),
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: "Password",
-                              hintStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                              // border: OutlineInputBorder(
-                              //   borderRadius: BorderRadius.circular(20),
-                              //   borderSide: BorderSide(color: Colors.grey),
-                              // ),
-                              prefixIcon: Icon(
-                                Icons.password,
-                                color: const Color.fromARGB(255, 2, 2, 2),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const ForgetPass(),
+                            SizedBox(height: 30.0),
+                            TextFormField(
+                              controller: useremailcontroller,
+                              validator: (value){
+                                if (value==null || value.isEmpty) {
+                                  return "Please Enter Your Email";
+                                } else if (!RegExp(
+                                        r"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(value)) {
+                                  return "Please Enter a Valid Email";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Email",
+                                hintStyle: TextStyle(
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              );
-                            },
-                            child: Container(
-                              alignment: Alignment.topRight,
-                              child: Text(
-                                "Forgot Password?",
-                                style: AppWidgetSupport.semiTextFeildStyle(),
+                                // border: OutlineInputBorder(
+                                //   borderRadius: BorderRadius.circular(20),
+                                //   borderSide: BorderSide(color: Colors.grey),
+                                // ),
+                                prefixIcon: Icon(
+                                  Icons.email,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 60.0),
-                          Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(20),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
-                              width: 180,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 18, 168, 10),
-                                borderRadius: BorderRadius.circular(20),
+                            SizedBox(height: 30.0),
+                            TextFormField(
+                              controller: userpasswordcontroller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please Enter Your Password";
+                                } else if (value.length < 6) {
+                                  return "Password must be at least 6 characters long";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                hintText: "Password",
+                                hintStyle: TextStyle(
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                // border: OutlineInputBorder(
+                                //   borderRadius: BorderRadius.circular(20),
+                                //   borderSide: BorderSide(color: Colors.grey),
+                                // ),
+                                prefixIcon: Icon(
+                                  Icons.password,
+                                  color: const Color.fromARGB(255, 2, 2, 2),
+                                ),
                               ),
-                              child: Center(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => HomeScreen(),
+                            ),
+                            SizedBox(height: 20.0),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ForgetPass(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                alignment: Alignment.topRight,
+                                child: Text(
+                                  "Forgot Password?",
+                                  style: AppWidgetSupport.semiTextFeildStyle(),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 60.0),
+                            GestureDetector(
+                              onTap:(){
+                                if(_formkey.currentState!.validate()) {
+                                  setState(() {
+                                    email = useremailcontroller.text;
+                                    password = userpasswordcontroller.text;
+                                  });
+                                }
+                                userLogin();
+                              },
+                              child: Material(
+                                elevation: 5.0,
+                                borderRadius: BorderRadius.circular(20),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 18, 168, 10),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Center(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => HomeScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "LOGIN",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontFamily: "Roboto",
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    );
-                                  },
-                                  child: Text(
-                                    "LOGIN",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontFamily: "Roboto",
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
