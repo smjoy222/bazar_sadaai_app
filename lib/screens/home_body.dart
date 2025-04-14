@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/screens/details.dart';
 import 'package:bazar_sadaai_app/utils/colors.dart';
 import 'package:bazar_sadaai_app/utils/dimensions.dart';
 import 'package:bazar_sadaai_app/widgets/big_text.dart';
@@ -431,120 +432,135 @@ class _HomeBodyState extends State<HomeBody> {
           bottom: Dimensions.height20),
       child: Row(
         children: [
-          Material(
-            color: const Color.fromARGB(255, 236, 239, 232),
-            elevation: 10.0,
-            borderRadius: BorderRadius.circular(Dimensions.radius20),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Details()));
+            },
             child: Container(
-              padding: EdgeInsets.all(14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/green-apple.png",
-                    height: 120,
-                    width: 120,
-                    fit: BoxFit.cover,
+              margin: EdgeInsets.all(4),
+              child: Material(
+                color: const Color.fromARGB(255, 236, 239, 232),
+                elevation: 10.0,
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                child: Container(
+                  padding: EdgeInsets.all(14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/green-apple.png",
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        "Green Apple",
+                        style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                      ),
+                      SizedBox(
+                        height: Dimensions.height5,
+                      ),
+                      Text(
+                        "Fresh and Healthy",
+                        style: AppWidgetSupport.lightTextFeildStyle(),
+                      ),
+                      SizedBox(
+                        height: Dimensions.height5,
+                      ),
+                      Text(
+                        "\৳150",
+                        style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                      )
+                    ],
                   ),
-                  Text(
-                    "Green Apple",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "Fresh and Healthy",
-                    style: AppWidgetSupport.lightTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "\৳150",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  )
-                ],
+                ),
               ),
             ),
           ),
           SizedBox(
-            width: Dimensions.width20,
+            width: Dimensions.width10,
           ),
-          Material(
-            color: const Color.fromARGB(255, 236, 239, 232),
-            elevation: 10.0,
-            borderRadius: BorderRadius.circular(Dimensions.radius20),
-            child: Container(
-              padding: EdgeInsets.all(14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/palong.png",
-                    height: 120,
-                    width: 120,
-                    fit: BoxFit.cover,
-                  ),
-                  Text(
-                    "Palong Shak",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "Fresh and Healthy",
-                    style: AppWidgetSupport.lightTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "\৳20",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  )
-                ],
+          Container(
+            margin: EdgeInsets.all(4),
+            child: Material(
+              color: const Color.fromARGB(255, 236, 239, 232),
+              elevation: 10.0,
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              child: Container(
+                padding: EdgeInsets.all(14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/palong.png",
+                      height: 120,
+                      width: 120,
+                      fit: BoxFit.cover,
+                    ),
+                    Text(
+                      "Palong Shak",
+                      style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height5,
+                    ),
+                    Text(
+                      "Fresh and Healthy",
+                      style: AppWidgetSupport.lightTextFeildStyle(),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height5,
+                    ),
+                    Text(
+                      "\৳20",
+                      style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
           SizedBox(
-            width: Dimensions.width20,
+            width: Dimensions.width10,
           ),
-          Material(
-            color: const Color.fromARGB(255, 236, 239, 232),
-            elevation: 10.0,
-            borderRadius: BorderRadius.circular(Dimensions.radius20),
-            child: Container(
-              padding: EdgeInsets.all(14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/beef.png",
-                    height: 120,
-                    width: 120,
-                    fit: BoxFit.cover,
-                  ),
-                  Text(
-                    "Beef",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "Fresh and Healthy",
-                    style: AppWidgetSupport.lightTextFeildStyle(),
-                  ),
-                  SizedBox(
-                    height: Dimensions.height5,
-                  ),
-                  Text(
-                    "\৳800",
-                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                  )
-                ],
+          Container(
+            margin: EdgeInsets.all(4),
+            child: Material(
+              color: const Color.fromARGB(255, 236, 239, 232),
+              elevation: 10.0,
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              child: Container(
+                padding: EdgeInsets.all(14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/beef.png",
+                      height: 120,
+                      width: 120,
+                      fit: BoxFit.cover,
+                    ),
+                    Text(
+                      "Beef",
+                      style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height5,
+                    ),
+                    Text(
+                      "Fresh and Healthy",
+                      style: AppWidgetSupport.lightTextFeildStyle(),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height5,
+                    ),
+                    Text(
+                      "\৳800",
+                      style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

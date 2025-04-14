@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/admin/admin_login.dart';
 import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/login_screen.dart';
 import 'package:bazar_sadaai_app/screens/onboard.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //home: Onboard(),
-      home: HomeScreen(),
+      //home: HomeScreen(),
+      home: AdminLogin(),
     );
   }
 }
