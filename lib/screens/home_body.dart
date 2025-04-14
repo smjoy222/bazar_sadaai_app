@@ -3,6 +3,7 @@ import 'package:bazar_sadaai_app/utils/dimensions.dart';
 import 'package:bazar_sadaai_app/widgets/big_text.dart';
 import 'package:bazar_sadaai_app/widgets/icon_text.dart';
 import 'package:bazar_sadaai_app/widgets/small_text.dart';
+import 'package:bazar_sadaai_app/widgets/widget_support.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -119,8 +120,28 @@ class _HomeBodyState extends State<HomeBody> {
           ),
           //category section
           showItem(),
+          SizedBox(
+            height: Dimensions.height20,
+          ),
+          Row(
+            children: [
+              Container(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      "assets/images/red-apple.png",
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    ),
+                    Text("Fresh Red-Apple", style: AppWidgetSupport.semiBoldTextFeildStyle(),)
+                  ],
+                ),
+              )
+            ],
+          )
           //Popular text
-          SizedBox(height: Dimensions.height30),
+          /*SizedBox(height: Dimensions.height30),
           Container(
             margin: EdgeInsets.only(left: Dimensions.width30),
             child: Row(
@@ -146,9 +167,9 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               ],
             ),
-          ),
+          ),*/
           //list of food and images
-          ListView.builder(
+          /* ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
@@ -235,7 +256,7 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               );
             },
-          ),
+          ),*/
         ],
       ),
     );

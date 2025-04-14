@@ -29,6 +29,15 @@ class AppWidgetSupport {
     );
   }
 
+  static TextStyle semiBoldTextFeildStyle() {
+    return TextStyle(
+      color: const Color.fromARGB(123, 0, 0, 0),
+      fontSize: 18.0,
+      fontWeight: FontWeight.w500,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    );
+  }
+
   static TextStyle semiTextFeildStyle() {
     return TextStyle(
       color: Colors.black,
