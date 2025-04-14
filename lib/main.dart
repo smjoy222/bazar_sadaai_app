@@ -2,6 +2,7 @@ import 'package:bazar_sadaai_app/admin/admin_login.dart';
 import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/login_screen.dart';
 import 'package:bazar_sadaai_app/screens/onboard.dart';
+import 'package:bazar_sadaai_app/screens/order.dart';
 import 'package:bazar_sadaai_app/screens/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
