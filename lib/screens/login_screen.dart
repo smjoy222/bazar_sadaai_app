@@ -1,3 +1,5 @@
+import 'package:bazar_sadaai_app/admin/admin_login.dart';
+import 'package:bazar_sadaai_app/admin/home_admin.dart';
 import 'package:bazar_sadaai_app/screens/forget_pass.dart';
 import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:bazar_sadaai_app/screens/signup.dart';
@@ -22,34 +24,34 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController userpasswordcontroller = new TextEditingController();
 
   userLogin() async {
-  try {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email, password: password);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomeScreen()));
-  } on FirebaseAuthException catch (e) {
-    if (e.code == 'user-not-found') {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-        "No User Found for that Email",
-        style: TextStyle(fontSize: 18.0, color: Colors.red),
-      )));
-    } else if (e.code == 'wrong-password') {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-        "Wrong Password Provided by User",
-        style: TextStyle(fontSize: 18.0, color: Colors.red),
-      )));
-    } else {
-      // Handle any other errors
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-        e.message ?? "An unexpected error occurred.",
-        style: TextStyle(fontSize: 18.0, color: Colors.red),
-      )));
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          "No User Found for that Email",
+          style: TextStyle(fontSize: 18.0, color: Colors.red),
+        )));
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          "Wrong Password Provided by User",
+          style: TextStyle(fontSize: 18.0, color: Colors.red),
+        )));
+      } else {
+        // Handle any other errors
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          e.message ?? "An unexpected error occurred.",
+          style: TextStyle(fontSize: 18.0, color: Colors.red),
+        )));
+      }
     }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -222,24 +224,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Center(
-                                      // child: GestureDetector(
-                                      // onTap: () {
-                                      //   Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //       builder: (context) => HomeScreen(),
-                                      //     ),
-                                      //   );
-                                      // },
-                                      child: Text(
-                                        "LOGIN",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontFamily: "Roboto",
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      
+                                    // child: GestureDetector(
+                                    // onTap: () {
+                                    //   Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //       builder: (context) => HomeScreen(),
+                                    //     ),
+                                    //   );
+                                    // },
+                                    child: Text(
+                                      "LOGIN",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontFamily: "Roboto",
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -263,6 +264,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: AppWidgetSupport.semiTextFeildStyle(),
                     ),
                   ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AdminLogin()),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                      margin: EdgeInsets.symmetric(horizontal: 20.0),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Text(
+                          "Only For Admin LogIn",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

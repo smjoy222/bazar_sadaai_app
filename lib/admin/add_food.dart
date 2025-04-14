@@ -11,7 +11,55 @@ class AddFood extends StatefulWidget {
 }
 
 class _AddFoodState extends State<AddFood> {
+  final List<String> fooditems = [
+    "Fruits",
+    "Vegetables",
+    "Dairy",
+    "Meat",
 
+  ];
+  String? value;
+  TextEditingController namecontroller = new TextEditingController();
+  TextEditingController pricecontroller = new TextEditingController();
+  TextEditingController detailcontroller = new TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+  File? selectedImage;
+    Future getImage() async {
+    var image = await _picker.pickImage(source: ImageSource.gallery);
+
+    selectedImage = File(image!.path);
+    setState(() {});
+  }
+
+  //   uploadItem() async {
+  //   if (selectedImage != null &&
+  //       namecontroller.text != "" &&
+  //       pricecontroller.text != "" &&
+  //       detailcontroller.text != "") {
+  //     String addId = randomAlphaNumeric(10);
+
+  //     Reference firebaseStorageRef =
+  //         FirebaseStorage.instance.ref().child("blogImages").child(addId);
+  //     final UploadTask task = firebaseStorageRef.putFile(selectedImage!);
+
+  //     var downloadUrl = await (await task).ref.getDownloadURL();
+
+  //     Map<String, dynamic> addItem = {
+  //       "Image": downloadUrl,
+  //       "Name": namecontroller.text,
+  //       "Price": pricecontroller.text,
+  //       "Detail": detailcontroller.text
+  //     };
+  //     await DatabaseMethods().addFoodItem(addItem, value!).then((value) {
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //           backgroundColor: Colors.orangeAccent,
+  //           content: Text(
+  //             "Food Item has been added Successfully",
+  //             style: TextStyle(fontSize: 18.0),
+  //           )));
+  //     });
+  //   }
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,7 +256,7 @@ class _AddFoodState extends State<AddFood> {
               ),
               GestureDetector(
                 onTap: (){
-                  uploadItem();
+                  //uploadItem();
                 },
                 child: Center(
                   child: Material(

@@ -46,7 +46,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                         Padding(
                           padding: EdgeInsets.all(6.0),
                           child: Image.asset(
-                            "images/red-apple.png",
+                            "assets/images/red-apple.png",
                             height: 100,
                             width: 100,
                             fit: BoxFit.cover,

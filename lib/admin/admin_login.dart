@@ -1,6 +1,9 @@
 import 'package:bazar_sadaai_app/admin/home_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AdminLogin extends StatefulWidget {
   const AdminLogin({super.key});
@@ -126,7 +129,12 @@ class _AdminLoginState extends State<AdminLogin> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                 LoginAdmin();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeAdmin()),
+                                );
+                                // loginAdmin();
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -159,29 +167,39 @@ class _AdminLoginState extends State<AdminLogin> {
       ),
     );
   }
-  LoginAdmin() {
-    FirebaseFirestore.instance.collection("Admin").get().then((snapshot) {
-      snapshot.docs.forEach((result) {
-        if (result.data()['id'] != usernamecontroller.text.trim()) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor: Colors.orangeAccent,
-              content: Text(
-                "Your id is not correct",
-                style: TextStyle(fontSize: 18.0),
-              )));
-        } else if (result.data()['password'] !=
-            userpasswordcontroller.text.trim()) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor: Colors.orangeAccent,
-              content: Text(
-                "Your password is not correct",
-                style: TextStyle(fontSize: 18.0),
-              )));
-        } else {
-          Route route = MaterialPageRoute(builder: (context) => HomeAdmin());
-          Navigator.pushReplacement(context, route);
-        }
-      });
-    });
-  }
+
+  // loginAdmin() async {
+  //   String inputId = usernamecontroller.text.trim();
+  //   String inputPassword = userpasswordcontroller.text.trim();
+
+  //   QuerySnapshot snapshot = await FirebaseFirestore.instance
+  //       .collection("Admin")
+  //       .where('id', isEqualTo: inputId)
+  //       .get();
+
+  //   if (snapshot.docs.isEmpty) {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         backgroundColor: Colors.orangeAccent,
+  //         content: Text(
+  //           "Your id is not correct",
+  //           style: TextStyle(fontSize: 18.0),
+  //         )));
+  //     return;
+  //   }
+
+  //   var adminData = snapshot.docs.first.data() as Map<String, dynamic>;
+
+  //   if (adminData['password'] != inputPassword) {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         backgroundColor: Colors.orangeAccent,
+  //         content: Text(
+  //           "Your password is not correct",
+  //           style: TextStyle(fontSize: 18.0),
+  //         )));
+  //   } else {
+  //     // Login successful
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (_) => HomeAdmin()));
+  //   }
+  // }
 }
