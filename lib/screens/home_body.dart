@@ -5,6 +5,7 @@ import 'package:bazar_sadaai_app/widgets/icon_text.dart';
 import 'package:bazar_sadaai_app/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -34,68 +35,120 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   void dispose() {
     _pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        //Slider section
-        Container(
-          height: Dimensions.pageView,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: 5,
-            itemBuilder: (context, position) {
-              return _buildPageItem(position);
-            },
-          ),
-        ),
-        //dots
-        new DotsIndicator(
-          dotsCount: 5,
-          position: _currPageValue,
-          decorator: DotsDecorator(
-            activeColor: AppColors.maincolor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 25, bottom: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "BAZAR",
+                      style: TextStyle(
+                        fontFamily: GoogleFonts.plaster().fontFamily,
+                        fontSize: 30,
+                        color: AppColors.maincolor,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "SHADAI ",
+                          style: TextStyle(
+                            fontFamily:
+                                GoogleFonts.fascinateInline().fontFamily,
+                            color: AppColors.maincolor,
+                            fontSize: 23,
+                          ),
+                        ),
+                        Icon(
+                          Icons.shopping_bag,
+                          color: AppColors.maincolor,
+                          size: 20,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Center(
+                  child: Container(
+                    width: 45,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColors.maincolor,
+                    ),
+                    child: Icon(Icons.search, color: Colors.white, size: 25),
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        //category section
-        showItem(),
-        //Popular text
-        SizedBox(height: Dimensions.height30),
-        Container(
-          margin: EdgeInsets.only(left: Dimensions.width30),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              BigText(
-                text: "Popular",
-                style: TextStyle(fontWeight: FontWeight.bold),
+
+          Container(
+            height: Dimensions.pageView,
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position);
+              },
+            ),
+          ),
+          //dots
+          new DotsIndicator(
+            dotsCount: 5,
+            position: _currPageValue,
+            decorator: DotsDecorator(
+              activeColor: AppColors.maincolor,
+              size: const Size.square(9.0),
+              activeSize: const Size(18.0, 9.0),
+              activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
               ),
-              SizedBox(width: Dimensions.width10),
-              Container(
-                margin: const EdgeInsets.only(bottom: 2),
-                child: BigText(
-                  text: ".",
-                  color: Colors.black26,
+            ),
+          ),
+          //category section
+          showItem(),
+          //Popular text
+          SizedBox(height: Dimensions.height30),
+          Container(
+            margin: EdgeInsets.only(left: Dimensions.width30),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                BigText(
+                  text: "Popular",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-              ),
-              SizedBox(width: Dimensions.width10),
-              Container(
-                margin: EdgeInsets.only(bottom: 5),
-                child: SmallText(text: "Food pairing"),
-              ),
-            ],
+                SizedBox(width: Dimensions.width10),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 2),
+                  child: BigText(
+                    text: ".",
+                    color: Colors.black26,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(width: Dimensions.width10),
+                Container(
+                  margin: EdgeInsets.only(bottom: 5),
+                  child: SmallText(text: "Food pairing"),
+                ),
+              ],
+            ),
           ),
-        ),
-        //list of food and images
-        ListView.builder(
+          //list of food and images
+          ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
@@ -182,8 +235,9 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               );
             },
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -340,15 +394,14 @@ class _HomeBodyState extends State<HomeBody> {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
-              color:
-                  index.isEven
-                      ? const Color.fromARGB(255, 236, 144, 7)
-                      : const Color.fromARGB(
-                        255,
-                        213,
-                        192,
-                        2,
-                      ), // Change this to your desired color
+              color: index.isEven
+                  ? const Color.fromARGB(255, 236, 144, 7)
+                  : const Color.fromARGB(
+                      255,
+                      213,
+                      192,
+                      2,
+                    ), // Change this to your desired color
               image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/straw.png'),
