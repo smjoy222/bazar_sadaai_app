@@ -22,18 +22,18 @@ class AppWidgetSupport {
 
   static TextStyle lightTextFeildStyle() {
     return TextStyle(
-      color: const Color.fromARGB(123, 0, 0, 0),
+      color: const Color.fromARGB(255, 24, 24, 24),
       fontSize: 15.0,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w300,
       fontFamily: GoogleFonts.poppins().fontFamily,
     );
   }
 
   static TextStyle semiBoldTextFeildStyle() {
     return TextStyle(
-      color: const Color.fromARGB(123, 0, 0, 0),
+      color: Colors.black87,
       fontSize: 18.0,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       fontFamily: GoogleFonts.poppins().fontFamily,
     );
   }

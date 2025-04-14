@@ -94,7 +94,6 @@ class _HomeBodyState extends State<HomeBody> {
               ],
             ),
           ),
-
           Container(
             height: Dimensions.pageView,
             child: PageView.builder(
@@ -123,140 +122,185 @@ class _HomeBodyState extends State<HomeBody> {
           SizedBox(
             height: Dimensions.height20,
           ),
-          Row(
-            children: [
-              Container(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/red-apple.png",
-                      height: 150,
-                      width: 150,
-                      fit: BoxFit.cover,
-                    ),
-                    Text("Fresh Red-Apple", style: AppWidgetSupport.semiBoldTextFeildStyle(),)
-                  ],
-                ),
-              )
-            ],
-          )
-          //Popular text
-          /*SizedBox(height: Dimensions.height30),
+          //popular item
+          fruitItem(),
+          SizedBox(
+            height: Dimensions.height10,
+          ),
           Container(
-            margin: EdgeInsets.only(left: Dimensions.width30),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                BigText(
-                  text: "Popular",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: Dimensions.width10),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: BigText(
-                    text: ".",
-                    color: Colors.black26,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(width: Dimensions.width10),
-                Container(
-                  margin: EdgeInsets.only(bottom: 5),
-                  child: SmallText(text: "Food pairing"),
-                ),
-              ],
-            ),
-          ),*/
-          //list of food and images
-          /* ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(
-                  left: Dimensions.width20,
-                  right: Dimensions.width10,
-                  bottom: Dimensions.height10,
-                ),
+            margin: EdgeInsets.only(
+                left: Dimensions.width10,
+                right: Dimensions.width10,
+                bottom: Dimensions.height10),
+            padding: EdgeInsets.all(4),
+            child: Material(
+              color: const Color.fromARGB(255, 236, 239, 232),
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              child: Container(
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    //image section
-                    Container(
-                      width: Dimensions.listViewImgSize,
-                      height: Dimensions.listViewImgSize,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.radius20,
-                        ),
-                        color: const Color.fromARGB(97, 232, 144, 20),
-                        image: const DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/images/red-apple.png'),
-                        ),
-                      ),
+                    SizedBox(
+                      width: Dimensions.width5,
                     ),
-                    //text container
-                    Expanded(
-                      child: Container(
-                        height: Dimensions.listViewTextContSize,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimensions.radius20),
-                            bottomRight: Radius.circular(Dimensions.radius20),
-                          ),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            right: Dimensions.width10,
-                            left: Dimensions.width10,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              BigText(
-                                text: "Fresh Red Apple",
-                                color: Colors.black,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: Dimensions.height10),
-                              SmallText(text: "Original Chinese Red Apple"),
-                              SizedBox(height: Dimensions.height10),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconText(
-                                    icon: Icons.circle_sharp,
-                                    text: 'Good',
-                                    iconColor: AppColors.iconColor1,
-                                  ),
-                                  IconText(
-                                    icon: Icons.location_on,
-                                    text: '1.7km',
-                                    iconColor: AppColors.maincolor,
-                                  ),
-                                  IconText(
-                                    icon: Icons.access_time_rounded,
-                                    text: '1 Day',
-                                    iconColor: AppColors.iconColor2,
-                                  ),
-                                ],
-                              ),
-                            ],
+                    Image.asset("assets/images/eggs.png",
+                        height: 120, width: 120, fit: BoxFit.cover),
+                    SizedBox(
+                      width: Dimensions.width20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Eggs",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
                           ),
                         ),
-                      ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Fresh and Healthy",
+                            style: AppWidgetSupport.lightTextFeildStyle(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "\৳110",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              );
-            },
-          ),*/
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+                left: Dimensions.width10,
+                right: Dimensions.width10,
+                bottom: Dimensions.height10),
+            padding: EdgeInsets.all(4),
+            child: Material(
+              color: const Color.fromARGB(255, 236, 239, 232),
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: Dimensions.width5,
+                    ),
+                    Image.asset("assets/images/orange.png",
+                        height: 120, width: 120, fit: BoxFit.cover),
+                    SizedBox(
+                      width: Dimensions.width20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Orange",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Fresh and Healthy",
+                            style: AppWidgetSupport.lightTextFeildStyle(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "\৳200",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+                left: Dimensions.width10,
+                right: Dimensions.width10,
+                bottom: Dimensions.height10),
+            padding: EdgeInsets.all(4),
+            child: Material(
+              color: const Color.fromARGB(255, 236, 239, 232),
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: Dimensions.width5,
+                    ),
+                    Image.asset("assets/images/anar.png",
+                        height: 120, width: 120, fit: BoxFit.cover),
+                    SizedBox(
+                      width: Dimensions.width20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Anar",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "Fresh and Healthy",
+                            style: AppWidgetSupport.lightTextFeildStyle(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Dimensions.height5,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: Text(
+                            "\৳200",
+                            style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -369,6 +413,138 @@ class _HomeBodyState extends State<HomeBody> {
                   width: 50,
                   fit: BoxFit.cover,
                 ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget fruitItem() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(
+          left: Dimensions.width10,
+          right: Dimensions.width10,
+          top: Dimensions.height10,
+          bottom: Dimensions.height20),
+      child: Row(
+        children: [
+          Material(
+            color: const Color.fromARGB(255, 236, 239, 232),
+            elevation: 10.0,
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            child: Container(
+              padding: EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/green-apple.png",
+                    height: 120,
+                    width: 120,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    "Green Apple",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "Fresh and Healthy",
+                    style: AppWidgetSupport.lightTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "\৳150",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            width: Dimensions.width20,
+          ),
+          Material(
+            color: const Color.fromARGB(255, 236, 239, 232),
+            elevation: 10.0,
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            child: Container(
+              padding: EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/palong.png",
+                    height: 120,
+                    width: 120,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    "Palong Shak",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "Fresh and Healthy",
+                    style: AppWidgetSupport.lightTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "\৳20",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            width: Dimensions.width20,
+          ),
+          Material(
+            color: const Color.fromARGB(255, 236, 239, 232),
+            elevation: 10.0,
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            child: Container(
+              padding: EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/beef.png",
+                    height: 120,
+                    width: 120,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    "Beef",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "Fresh and Healthy",
+                    style: AppWidgetSupport.lightTextFeildStyle(),
+                  ),
+                  SizedBox(
+                    height: Dimensions.height5,
+                  ),
+                  Text(
+                    "\৳800",
+                    style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                  )
+                ],
               ),
             ),
           ),
