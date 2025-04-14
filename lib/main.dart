@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //home: Onboard(),
-      home: HomeScreen(),
-      //home: AdminLogin(),
+     // home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
