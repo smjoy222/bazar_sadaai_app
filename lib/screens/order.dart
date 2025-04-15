@@ -87,19 +87,15 @@ class _OrderState extends State<Order> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 25.0),
+        padding: EdgeInsets.only(top: 37.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             Material(
-              
               color: Color.fromARGB(255, 18, 168, 10),
               elevation: 2.0,
               child: Container(
- 
                 padding: EdgeInsets.only(bottom: 10.0),
-                
                 child: Center(
                   child: Text(
                     "Cart",
@@ -201,11 +197,11 @@ class _OrderState extends State<Order> {
             ),
             GestureDetector(
               onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => DeliveryApp()),
-                      );
-                    },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DeliveryApp()),
+                );
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10.0),
                 width: MediaQuery.of(context).size.width,

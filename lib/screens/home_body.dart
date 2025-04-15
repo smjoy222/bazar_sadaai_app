@@ -46,7 +46,7 @@ class _HomeBodyState extends State<HomeBody> {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 25, bottom: 10),
+            margin: EdgeInsets.only(top: 30, bottom: 10),
             padding: EdgeInsets.only(left: 10, right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

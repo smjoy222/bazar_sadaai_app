@@ -32,7 +32,7 @@ class _WalletState extends State<Wallet> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: 37),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
