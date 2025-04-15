@@ -17,6 +17,8 @@ freshness. Say goodbye to unnecessary price hikes and
 long supply chains. With just a few taps, enjoy the true
 taste of nature — delivered fresh, fast, and fairly. 🌱
 
+![Image](https://github.com/user-attachments/assets/4d603041-1172-4d8f-a32f-49837c3a8493)
+
 ---
 
 <p align="center">
