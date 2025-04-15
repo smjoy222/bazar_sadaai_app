@@ -23,36 +23,39 @@ class _DetailsState extends State<Details> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(Icons.arrow_back_ios_new_outlined,
-                    color: Colors.black)),
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Icon(Icons.arrow_back_ios_new_outlined, color: Colors.black),
+            ),
             Image.asset(
               "assets/images/avocado.png",
-              width: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width * 0.9, // Constrain width
               height: MediaQuery.of(context).size.height / 2.6,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
             SizedBox(
               height: Dimensions.height10,
             ),
             Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Fresh Fruits",
-                      style: AppWidgetSupport.semiBoldTextFeildStyle(),
-                    ),
-                    Text(
-                      "Avocado",
-                      style: AppWidgetSupport.headlineTextFeildStyle(),
-                    ),
-                  ],
+                Expanded(
+                  // Ensure Row content fits within the screen
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Fresh Fruits",
+                        style: AppWidgetSupport.semiBoldTextFeildStyle(),
+                      ),
+                      Text(
+                        "Avocado",
+                        style: AppWidgetSupport.headlineTextFeildStyle(),
+                      ),
+                    ],
+                  ),
                 ),
-                Spacer(),
                 GestureDetector(
                   onTap: () {
                     if (a > 1) {
@@ -97,6 +100,7 @@ class _DetailsState extends State<Details> {
             Text(
               "Green apples are an abundant source of fiber that helps in improving your metabolism and cleanses your digestive system.",
               maxLines: 3,
+              overflow: TextOverflow.ellipsis, // Prevent text overflow
               style: AppWidgetSupport.lightTextFeildStyle(),
             ),
             SizedBox(
@@ -143,49 +147,50 @@ class _DetailsState extends State<Details> {
                       ),
                     ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Order()),
-                      );
-                    },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / 2,
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 15, 149, 8),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            "Add to Cart",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: GoogleFonts.poppins().fontFamily),
-                          ),
-                          SizedBox(
-                            width: Dimensions.width30,
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 183, 211, 172),
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Icon(Icons.shopping_cart_outlined,
-                                color: Color.fromARGB(255, 15, 149, 8)),
-                          ),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                        ],
+                  Expanded(
+                    // Wrap the button in Expanded to prevent overflow
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Order()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 15, 149, 8),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment:
+                              MainAxisAlignment.center, // Center the content
+                          children: [
+                            Text(
+                              "Add to Cart",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: GoogleFonts.poppins().fontFamily),
+                            ),
+                            SizedBox(
+                              width: Dimensions.width10,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 183, 211, 172),
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Icon(Icons.shopping_cart_outlined,
+                                  color: Color.fromARGB(255, 15, 149, 8)),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

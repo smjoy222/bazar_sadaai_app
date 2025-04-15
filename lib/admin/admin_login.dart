@@ -41,124 +41,128 @@ class _AdminLoginState extends State<AdminLogin> {
             ),
             Container(
               margin: EdgeInsets.only(left: 30.0, right: 30.0, top: 60.0),
-              child: Form(
-                key: _formkey,
-                child: Column(
-                  children: [
-                    Text(
-                      "LogIn Pannel\nAdmin!",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    Material(
-                      elevation: 3.0,
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height / 2.2,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 50.0,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(
-                                  left: 20.0, top: 5.0, bottom: 5.0),
-                              margin: EdgeInsets.symmetric(horizontal: 20.0),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 160, 160, 147)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                child: TextFormField(
-                                  controller: usernamecontroller,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please Enter Username';
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Username",
-                                      hintStyle: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 160, 160, 147))),
-                                ),
+              child: SingleChildScrollView(
+                // Added SingleChildScrollView
+                child: Form(
+                  key: _formkey,
+                  child: Column(
+                    children: [
+                      Text(
+                        "LogIn Pannel\nAdmin!",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Material(
+                        elevation: 3.0,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 2.2,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 50.0,
                               ),
-                            ),
-                            SizedBox(
-                              height: 40.0,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(
-                                  left: 20.0, top: 5.0, bottom: 5.0),
-                              margin: EdgeInsets.symmetric(horizontal: 20.0),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 160, 160, 147)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                child: TextFormField(
-                                  controller: userpasswordcontroller,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please Enter Password';
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Password",
-                                      hintStyle: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 160, 160, 147))),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 40.0,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeAdmin()),
-                                );
-                                // loginAdmin();
-                              },
-                              child: Container(
-                                padding: EdgeInsets.symmetric(vertical: 12.0),
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: 20.0, top: 5.0, bottom: 5.0),
                                 margin: EdgeInsets.symmetric(horizontal: 20.0),
-                                width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
+                                    border: Border.all(
+                                        color:
+                                            Color.fromARGB(255, 160, 160, 147)),
                                     borderRadius: BorderRadius.circular(10)),
                                 child: Center(
-                                  child: Text(
-                                    "LogIn",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold),
+                                  child: TextFormField(
+                                    controller: usernamecontroller,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please Enter Username';
+                                      }
+                                    },
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Username",
+                                        hintStyle: TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 160, 160, 147))),
                                   ),
                                 ),
                               ),
-                            )
-                          ],
+                              SizedBox(
+                                height: 40.0,
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: 20.0, top: 5.0, bottom: 5.0),
+                                margin: EdgeInsets.symmetric(horizontal: 20.0),
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color:
+                                            Color.fromARGB(255, 160, 160, 147)),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                  child: TextFormField(
+                                    controller: userpasswordcontroller,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please Enter Password';
+                                      }
+                                    },
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Password",
+                                        hintStyle: TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 160, 160, 147))),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 40.0,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeAdmin()),
+                                  );
+                                  // loginAdmin();
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 12.0),
+                                  margin:
+                                      EdgeInsets.symmetric(horizontal: 20.0),
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Center(
+                                    child: Text(
+                                      "LogIn",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
