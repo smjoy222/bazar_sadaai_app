@@ -2,7 +2,11 @@
 
 > **Purity. Transparency. Freshness.**
 
+---
 
+![Image](https://github.com/user-attachments/assets/4d603041-1172-4d8f-a32f-49837c3a8493)
+
+---
 
 </p>
 Bajar Sadaai is your trusted companion for fresh and
@@ -17,9 +21,34 @@ freshness. Say goodbye to unnecessary price hikes and
 long supply chains. With just a few taps, enjoy the true
 taste of nature — delivered fresh, fast, and fairly. 🌱
 
-![Image](https://github.com/user-attachments/assets/4d603041-1172-4d8f-a32f-49837c3a8493)
-
 ---
+
+<details>
+<summary>📲 <strong>About Our Application</strong></summary>
+
+**Bajar Sadaai** empowers users to shop healthy and local.
+
+- 🚜 Fresh fruits and vegetables sourced directly from farmers  
+- 🏪 Delivered to your **home** or **shop**  
+- 🧾 No brokers, no hidden fees  
+- 💚 Fair pricing, transparent system
+
+</details>
+
+<details>
+<summary>✨ <strong>Features</strong></summary>
+
+| Feature            | Description                                      |
+|--------------------|--------------------------------------------------|
+| 🏡 Home Page        | Clean, intuitive UI to get started               |
+| 🛍️ Product View     | Browse farm-fresh fruits and vegetables          |
+| 🧺 Cart             | Add, update, and manage your fresh picks         |
+| 💳 Payment Gateway  | Secure checkout via integrated payment system    |
+| 🛠️ Admin Dashboard  | Tools for both **admin** and **field team** to manage stock and logistics |
+
+</details>
+
+##  Tools & Technology
 
 <p align="center">
   <img src="https://img.shields.io/badge/Built%20With-Flutter-blue?style=for-the-badge&logo=flutter" />
@@ -67,34 +96,9 @@ taste of nature — delivered fresh, fast, and fairly. 🌱
 
 
 
----
 
-<details>
-<summary>📲 <strong>About Our Application</strong></summary>
 
-**Bajar Sadaai** empowers users to shop healthy and local.
 
-- 🚜 Fresh fruits and vegetables sourced directly from farmers  
-- 🏪 Delivered to your **home** or **shop**  
-- 🧾 No brokers, no hidden fees  
-- 💚 Fair pricing, transparent system
-
-</details>
-
----
-
-<details>
-<summary>✨ <strong>Features</strong></summary>
-
-| Feature            | Description                                      |
-|--------------------|--------------------------------------------------|
-| 🏡 Home Page        | Clean, intuitive UI to get started               |
-| 🛍️ Product View     | Browse farm-fresh fruits and vegetables          |
-| 🧺 Cart             | Add, update, and manage your fresh picks         |
-| 💳 Payment Gateway  | Secure checkout via integrated payment system    |
-| 🛠️ Admin Dashboard  | Tools for both **admin** and **field team** to manage stock and logistics |
-
-</details>
 
 ---
 
