@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/screens/order.dart';
 import 'package:bazar_sadaai_app/utils/dimensions.dart';
 import 'package:bazar_sadaai_app/widgets/widget_support.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _DetailsState extends State<Details> {
                 child: Icon(Icons.arrow_back_ios_new_outlined,
                     color: Colors.black)),
             Image.asset(
-              "assets/images/green-apple.png",
+              "assets/images/avocado.png",
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 2.6,
               fit: BoxFit.fill,
@@ -46,7 +47,7 @@ class _DetailsState extends State<Details> {
                       style: AppWidgetSupport.semiBoldTextFeildStyle(),
                     ),
                     Text(
-                      "Green Apple",
+                      "Avocado",
                       style: AppWidgetSupport.headlineTextFeildStyle(),
                     ),
                   ],
@@ -142,39 +143,47 @@ class _DetailsState extends State<Details> {
                       ),
                     ],
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2,
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 15, 149, 8),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Add to Cart",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: GoogleFonts.poppins().fontFamily),
-                        ),
-                        SizedBox(
-                          width: Dimensions.width30,
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 183, 211, 172),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Icon(Icons.shopping_cart_outlined,
-                              color: Color.fromARGB(255, 15, 149, 8)),
-                        ),
-                        SizedBox(
-                          width: Dimensions.width10,
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Order()),
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 2,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 15, 149, 8),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Add to Cart",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: GoogleFonts.poppins().fontFamily),
+                          ),
+                          SizedBox(
+                            width: Dimensions.width30,
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 183, 211, 172),
+                                borderRadius: BorderRadius.circular(8)),
+                            child: Icon(Icons.shopping_cart_outlined,
+                                color: Color.fromARGB(255, 15, 149, 8)),
+                          ),
+                          SizedBox(
+                            width: Dimensions.width10,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

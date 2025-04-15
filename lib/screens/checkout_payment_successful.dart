@@ -1,11 +1,6 @@
+import 'package:bazar_sadaai_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: OrderSuccessPage(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
 
 class OrderSuccessPage extends StatelessWidget {
   @override
@@ -110,8 +105,11 @@ class OrderSuccessPage extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to home page
-                  },
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: EdgeInsets.symmetric(vertical: 16),

@@ -1,11 +1,6 @@
+import 'package:bazar_sadaai_app/screens/checkout_payment_successful.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: PaymentPage(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
 
 class PaymentPage extends StatefulWidget {
   @override
@@ -39,7 +34,7 @@ class _PaymentPageState extends State<PaymentPage> {
             SizedBox(height: 4),
             Center(
               child: Text(
-                "BDT 602",
+                "\৳150",
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
             ),
@@ -80,8 +75,11 @@ class _PaymentPageState extends State<PaymentPage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle payment logic here
-                },
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OrderSuccessPage()),
+                      );
+                    },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding: EdgeInsets.symmetric(vertical: 16),

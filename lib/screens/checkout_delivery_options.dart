@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/screens/checkout_order_details.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const DeliveryApp());
@@ -139,7 +140,10 @@ class _DeliveryOptionPageState extends State<DeliveryOptionPage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle confirmation logic
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OrderDetailsPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,

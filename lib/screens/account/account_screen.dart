@@ -1,3 +1,4 @@
+import 'package:bazar_sadaai_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -11,50 +12,56 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 45, left: 20, right: 20),
-                height: MediaQuery.of(context).size.height / 4.3,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 51, 174, 6),
-                  borderRadius: BorderRadius.vertical(
-                      bottom: Radius.elliptical(
-                          MediaQuery.of(context).size.width, 105)),
+      body: Container(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 45, left: 20, right: 20),
+                  height: MediaQuery.of(context).size.height / 4.3,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 51, 174, 6),
+                    borderRadius: BorderRadius.vertical(
+                        bottom: Radius.elliptical(
+                            MediaQuery.of(context).size.width, 105)),
+                  ),
                 ),
-              ),
-              Center(
-                child: Container(
-                  margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height / 6.5),
-                  child: Material(
-                    elevation: 10,
-                    borderRadius: BorderRadius.circular(60),
-                    child: ClipRect(
-                      child: ClipOval(
-                      child: Image.asset(
-                        "assets/images/profile.png",
-                        height: 120,
-                        width: 120,
-                
-                        fit: BoxFit.cover,
-                      ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height / 6.5),
+                    child: Material(
+                      elevation: 10,
+                      borderRadius: BorderRadius.circular(60),
+                      child: ClipRect(
+                        child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/profile.png",
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(padding: EdgeInsets.only(top:70 ),child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Text("Anika",style: TextStyle(
-                  color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-                  ]
-                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 70),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Afrin",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Roboto'),
+                        ),
+                      ]),
                 )
               ],
             ),
@@ -112,7 +119,8 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Material(borderRadius: BorderRadius.circular(10),
+              child: Material(
+                borderRadius: BorderRadius.circular(10),
                 elevation: 2.0,
                 child: Container(
                   padding: EdgeInsets.symmetric(
@@ -126,7 +134,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     children: [
                       Icon(
                         Icons.email,
-                        color:Color.fromARGB(255, 51, 174, 6),
+                        color: Color.fromARGB(255, 51, 174, 6),
                       ),
                       SizedBox(
                         width: 20.0,
@@ -175,7 +183,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     children: [
                       Icon(
                         Icons.description,
-                        color:  Color.fromARGB(255, 51, 174, 6),
+                        color: Color.fromARGB(255, 51, 174, 6),
                       ),
                       SizedBox(
                         width: 20.0,
@@ -220,7 +228,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.delete,color: Color.fromARGB(255, 51, 174, 6),
+                          Icons.delete,
+                          color: Color.fromARGB(255, 51, 174, 6),
                         ),
                         SizedBox(
                           width: 20.0,
@@ -272,17 +281,26 @@ class _AccountScreenState extends State<AccountScreen> {
                         SizedBox(
                           width: 20.0,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "LogOut",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w600),
-                            )
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()),
+                            );
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "LogOut",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w600),
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),

@@ -1,6 +1,6 @@
 import 'package:bazar_sadaai_app/widgets/widget_support.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
+// import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Wallet extends StatefulWidget {
@@ -11,33 +11,33 @@ class Wallet extends StatefulWidget {
 }
 
 class _WalletState extends State<Wallet> {
-  String? wallet, id;
-  int? add;
-  TextEditingController amountcontroller = new TextEditingController();
+//   String? wallet, id;
+//   int? add;
+//   TextEditingController amountcontroller = new TextEditingController();
 
-  ontheload() async {
-    await getthesharedpref();
-    setState(() {});
-  }
+//   ontheload() async {
+//     await getthesharedpref();
+//     setState(() {});
+//   }
 
-  @override
-  void initState() {
-    ontheload();
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     ontheload();
+//     super.initState();
+//   }
 
-  Map<String, dynamic>? paymentIntent;
+//   Map<String, dynamic>? paymentIntent;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 60),
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Material(
-              color: Color.fromARGB(255, 15, 149, 8),
+              color: Color.fromARGB(255, 18, 168, 10),
               elevation: 2.0,
               child: Container(
                 padding: EdgeInsets.only(bottom: 10.0),
@@ -104,7 +104,7 @@ class _WalletState extends State<Wallet> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    makePayment('100');
+                    // makePayment('100');
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
@@ -119,7 +119,7 @@ class _WalletState extends State<Wallet> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    makePayment('500');
+                    // makePayment('500');
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
@@ -134,7 +134,7 @@ class _WalletState extends State<Wallet> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    makePayment('1000');
+                    // makePayment('1000');
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
@@ -149,7 +149,7 @@ class _WalletState extends State<Wallet> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    makePayment('2000');
+                    // makePayment('2000');
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
@@ -169,14 +169,14 @@ class _WalletState extends State<Wallet> {
             ),
             GestureDetector(
               onTap: () {
-                openEdit();
+                // openEdit();
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 20.0),
                 padding: EdgeInsets.symmetric(vertical: 12.0),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    color: Color(0xFF008080),
+                    color: Color.fromARGB(255, 18, 168, 10),
                     borderRadius: BorderRadius.circular(8)),
                 child: Center(
                   child: Text(

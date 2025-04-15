@@ -23,7 +23,6 @@ class _SignupState extends State<Signup> {
 
   final _formkey = GlobalKey<FormState>();
 
-
   registration() async {
     if (password != null) {
       try {
@@ -71,6 +70,7 @@ class _SignupState extends State<Signup> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,174 +108,177 @@ class _SignupState extends State<Signup> {
             ), // Other widgets can go here, like login form, etc.
             Container(
               margin: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
-              child: Column(
-                children: [
-                  Center(
-                    child: Image.asset(
-                      "assets/images/logo.png",
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  SizedBox(height: 30.0),
-                  Material(
-                    elevation: 5.0,
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 1.6,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+              child: SingleChildScrollView(
+                // Added SingleChildScrollView
+                child: Column(
+                  children: [
+                    Center(
+                      child: Image.asset(
+                        "assets/images/logo.png",
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        fit: BoxFit.cover,
                       ),
-                      child: Form(
-                        key: _formkey,
-                        child: Column(
-                          children: [
-                            SizedBox(height: 30.0),
-                            Text(
-                              "Sing Up",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            TextFormField(
-                              controller: mailcontroller,
-                              validator: (value){
-                                if (value==null || value.isEmpty) {
-                                  return "Please Enter Email";
-                                } else {
-                                  return null;
-                                }
-                              },
-                              decoration: InputDecoration(
-                                hintText: "Email",
-                                hintStyle: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    SizedBox(height: 30.0),
+                    Material(
+                      elevation: 5.0,
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height / 1.6,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Form(
+                          key: _formkey,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 30.0),
+                              Text(
+                                "Sing Up",
+                                style: TextStyle(
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                // border: OutlineInputBorder(
-                                //   borderRadius: BorderRadius.circular(20),
-                                //   borderSide: BorderSide(color: Colors.grey),
-                                // ),
-                                prefixIcon: Icon(
-                                  Icons.email,
-                                  color: const Color.fromARGB(255, 0, 0, 0),
-                                ),
                               ),
-                            ),
-                            SizedBox(height: 30.0),
-                            TextFormField(
-                              controller: namecontroller,
-                              validator: (value){
-                                if (value==null || value.isEmpty) {
-                                  return "Please Enter Name";
-                                } else {
-                                  return null;
-                                }
-                              },
-                              decoration: InputDecoration(
-                                hintText: "Name",
-                                hintStyle: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                // border: OutlineInputBorder(
-                                //   borderRadius: BorderRadius.circular(20),
-                                //   borderSide: BorderSide(color: Colors.grey),
-                                // ),
-                                prefixIcon: Icon(
-                                  Icons.person,
-                                  color: const Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            TextFormField(
-                              controller: passwordcontroller,
-                              validator: (value){
-                                if (value==null || value.isEmpty) {
-                                  return "Please Enter Password";
-                                } else {
-                                  return null;
-                                }
-                              },
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                hintText: "Password",
-                                hintStyle: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                // border: OutlineInputBorder(
-                                //   borderRadius: BorderRadius.circular(20),
-                                //   borderSide: BorderSide(color: Colors.grey),
-                                // ),
-                                prefixIcon: Icon(
-                                  Icons.password,
-                                  color: const Color.fromARGB(255, 2, 2, 2),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 60.0),
-                            GestureDetector(
-                              onTap:()async{
-                                if(_formkey.currentState!.validate()){
-                                  setState(() {
-                                    email = mailcontroller.text;
-                                    password = passwordcontroller.text;
-                                    name = namecontroller.text;
-                                  });
-                                  
-                                }
-                                registration();
-                              },
-                              child: Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(20),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                                  width: 180,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 92, 244, 54),
-                                    borderRadius: BorderRadius.circular(20),
+                              SizedBox(height: 30.0),
+                              TextFormField(
+                                controller: mailcontroller,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please Enter Email";
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                decoration: InputDecoration(
+                                  hintText: "Email",
+                                  hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      "SIGN UP",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontFamily: "Roboto",
-                                        fontWeight: FontWeight.bold,
+                                  // border: OutlineInputBorder(
+                                  //   borderRadius: BorderRadius.circular(20),
+                                  //   borderSide: BorderSide(color: Colors.grey),
+                                  // ),
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 30.0),
+                              TextFormField(
+                                controller: namecontroller,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please Enter Name";
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                decoration: InputDecoration(
+                                  hintText: "Name",
+                                  hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  // border: OutlineInputBorder(
+                                  //   borderRadius: BorderRadius.circular(20),
+                                  //   borderSide: BorderSide(color: Colors.grey),
+                                  // ),
+                                  prefixIcon: Icon(
+                                    Icons.person,
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 30.0),
+                              TextFormField(
+                                controller: passwordcontroller,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please Enter Password";
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  hintText: "Password",
+                                  hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  // border: OutlineInputBorder(
+                                  //   borderRadius: BorderRadius.circular(20),
+                                  //   borderSide: BorderSide(color: Colors.grey),
+                                  // ),
+                                  prefixIcon: Icon(
+                                    Icons.password,
+                                    color: const Color.fromARGB(255, 2, 2, 2),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 40),
+                              GestureDetector(
+                                onTap: () async {
+                                  if (_formkey.currentState!.validate()) {
+                                    setState(() {
+                                      email = mailcontroller.text;
+                                      password = passwordcontroller.text;
+                                      name = namecontroller.text;
+                                    });
+                                  }
+                                  registration();
+                                },
+                                child: Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Container(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 8.0),
+                                    width: 180,
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 92, 244, 54),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "SIGN UP",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontFamily: "Roboto",
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 70.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
-                    },
-                    child: Text(
-                      "Already have an account? Log in",
-                      style: AppWidgetSupport.semiTextFeildStyle(),
+                    SizedBox(height: 70.0),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
+                      child: Text(
+                        "Already have an account? Log in",
+                        style: AppWidgetSupport.semiTextFeildStyle(),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

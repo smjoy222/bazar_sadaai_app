@@ -1,6 +1,7 @@
 import 'package:bazar_sadaai_app/screens/account/account_screen.dart';
 import 'package:bazar_sadaai_app/screens/checkout_delivery_options.dart';
 import 'package:bazar_sadaai_app/screens/notification_screen.dart';
+import 'package:bazar_sadaai_app/screens/order.dart';
 import 'package:bazar_sadaai_app/screens/wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,8 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [
     HomeBody(),
     Wallet(),
-    DeliveryOptionPage(),
-    NotificationScreen(),
+    Order(),
+    //NotificationScreen(),
     AccountScreen(),
   ];
 
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(Icons.home, size: 26, color: Colors.white),
           Icon(Icons.wallet_outlined, size: 26, color: Colors.white),
           Icon(Icons.shopping_cart, size: 26, color: Colors.white),
-          Icon(Icons.notifications, size: 26, color: Colors.white),
+          // Icon(Icons.notifications, size: 26, color: Colors.white),
           Icon(Icons.account_circle, size: 26, color: Colors.white),
         ],
         color: Color.fromARGB(255, 18, 168, 10),

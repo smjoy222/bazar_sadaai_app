@@ -46,7 +46,7 @@ class _AdminLoginState extends State<AdminLogin> {
                 child: Column(
                   children: [
                     Text(
-                      "Let's start with\nAdmin!",
+                      "LogIn Pannel\nAdmin!",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 25.0,

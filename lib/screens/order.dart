@@ -1,3 +1,5 @@
+import 'package:bazar_sadaai_app/screens/checkout_delivery_options.dart';
+import 'package:bazar_sadaai_app/screens/checkout_order_details.dart';
 import 'package:flutter/material.dart';
 
 class Order extends StatefulWidget {
@@ -89,17 +91,22 @@ class _OrderState extends State<Order> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             Material(
+              
+              color: Color.fromARGB(255, 18, 168, 10),
               elevation: 2.0,
               child: Container(
+ 
                 padding: EdgeInsets.only(bottom: 10.0),
+                
                 child: Center(
                   child: Text(
                     "Cart",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 6, 192, 40),
+                      color: Color.fromARGB(255, 247, 249, 247),
                     ),
                   ),
                 ),
@@ -126,7 +133,7 @@ class _OrderState extends State<Order> {
                         decoration: BoxDecoration(
                             border: Border.all(),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Center(child: Text('2')),
+                        child: Center(child: Text('1')),
                       ),
                       SizedBox(
                         width: 20,
@@ -150,7 +157,8 @@ class _OrderState extends State<Order> {
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "\$2.00",
+                            //"\$2.00",
+                            "\৳150",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           )
@@ -177,7 +185,8 @@ class _OrderState extends State<Order> {
                     ),
                   ),
                   Text(
-                    "\$50",
+                    // "\$50",
+                    "\৳150",
                     style: TextStyle(
                       fontSize: 18,
                       // fontWeight: FontWeight.bold,
@@ -190,21 +199,29 @@ class _OrderState extends State<Order> {
             SizedBox(
               height: 20.0,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 6, 192, 40),
-                  borderRadius: BorderRadius.circular(10)),
-              margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20),
-              child: Center(
-                  child: Text(
-                "Checkout",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              )),
+            GestureDetector(
+              onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DeliveryApp()),
+                      );
+                    },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10.0),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 18, 168, 10),
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20),
+                child: Center(
+                    child: Text(
+                  "Checkout",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                )),
+              ),
             ),
           ],
         ),

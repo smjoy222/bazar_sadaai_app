@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: VegetableStatisticsScreen(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
 
 class VegetableStatisticsScreen extends StatefulWidget {
   @override
@@ -123,21 +117,21 @@ class _VegetableStatisticsScreenState extends State<VegetableStatisticsScreen> {
         ),
       ),
 
-      // Bottom Navigation
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart), label: "Statistics"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
-        ],
-        currentIndex: 1,
-        onTap: (index) {},
-      ),
+      // // Bottom Navigation
+      // bottomNavigationBar: BottomNavigationBar(
+      //   selectedItemColor: Colors.green,
+      //   unselectedItemColor: Colors.grey,
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.bar_chart), label: "Statistics"),
+      //     BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.settings), label: "Settings"),
+      //   ],
+      //   currentIndex: 1,
+      //   onTap: (index) {},
+      // ),
     );
   }
 
